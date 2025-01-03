@@ -1,12 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoPersonCircle } from "react-icons/io5";
 import { IoIosAddCircle, IoMdClose } from "react-icons/io";
 import Cookies from "js-cookie";
 import "./Story.css";
+import { UserContext } from "../../context/UserContext";
 
 const Story = () => {
   const storyRef = useRef();
+  const { user, apiUrl } = useContext(UserContext);
 
   const [showStory, setShowStory] = useState(false);
   const [storyInput, setStoryInput] = useState("");
@@ -82,7 +84,7 @@ const Story = () => {
     }
 
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = `http://localhost:3002/users/story-upload`;
+    const url = `${apiUrl}/users/story-upload`;
 
     const newStory = {
       mediaUrl: story,
@@ -99,7 +101,7 @@ const Story = () => {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         console.log("story: ", data);
@@ -114,7 +116,7 @@ const Story = () => {
 
   const getStories = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = `http://localhost:3002/users/stories`;
+    const url = `${apiUrl}/users/stories`;
 
     const options = {
       method: "GET",
@@ -124,7 +126,7 @@ const Story = () => {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         if (data.stories.length !== 0) {
@@ -140,8 +142,21 @@ const Story = () => {
     <div className="story-container" ref={storyRef}>
       <div className="story-wrapper">
         <div className="your-story-container">
-          <label htmlFor="storyInput">
+          {user.profilePic ? (
+            <Link to={`/stories/${user.username}`} className="story-link">
+              <div className="story-wrapper">
+                <img
+                  src={user.profilePic}
+                  alt=""
+                  className="your-story-image-profile"
+                />
+              </div>
+            </Link>
+          ) : (
             <IoPersonCircle className="your-story-icon" />
+          )}
+
+          <label htmlFor="storyInput">
             <IoIosAddCircle className="story-add-icon" />
           </label>
           <input

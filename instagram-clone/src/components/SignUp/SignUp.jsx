@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaFacebookSquare } from "react-icons/fa";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { UserContext } from "../../context/UserContext";
 import "./signup.css";
 
 function SignUp() {
   const navigate = useNavigate();
+  const { apiUrl } = useContext(UserContext);
 
   const [userDetails, setUserDetails] = useState({
     fullname: "",
@@ -62,7 +64,7 @@ function SignUp() {
       return;
     }
 
-    const apiUrl = "http://localhost:3002/users/signup";
+    const url = `${apiUrl}/users/signup`;
     const options = {
       method: "POST",
       headers: {
@@ -72,7 +74,7 @@ function SignUp() {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         onSubmitSuccess();

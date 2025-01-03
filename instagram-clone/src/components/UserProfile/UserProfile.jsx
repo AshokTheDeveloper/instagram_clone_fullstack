@@ -8,6 +8,7 @@ import { GoPlus } from "react-icons/go";
 import { AiOutlineLink } from "react-icons/ai";
 import { BiGrid, BiMoviePlay, BiUserPin } from "react-icons/bi";
 import ProfilePostItem from "../ProfilePostItem/ProfilePostItem";
+import { UserContext } from "../../context/UserContext";
 import "./UserProfile.css";
 
 const apiStatusConstants = {
@@ -43,6 +44,8 @@ const tabs = [
 
 function UserProfile() {
   const { name } = useParams();
+  const { apiUrl } = useContext(UserContext);
+
   const [userData, setUserData] = useState({});
   const [postsData, setPostsData] = useState([]);
   const [activeTab, setActiveTab] = useState("posts");
@@ -54,23 +57,10 @@ function UserProfile() {
     getProfilePosts();
   }, []);
 
-  const convertToCamelCase = (userDetails) => {
-    const convertedObj = {
-      id: userDetails.is,
-      username: userDetails.username,
-      fullname: userDetails.fullname,
-      profilePic: userDetails.profile_pic,
-      followersCount: userDetails.followers_count,
-      followingCount: userDetails.following_count,
-      postsCount: userDetails.posts_count,
-    };
-    setUserData(convertedObj);
-  };
-
   const getUserProfile = async () => {
     const jwtToken = Cookies.get("jwt_token");
 
-    const apiUrl = `http://localhost:3002/users/${name}`;
+    const url = `${apiUrl}/users/${name}`;
     const options = {
       method: "GET",
       headers: {
@@ -79,7 +69,7 @@ function UserProfile() {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         setUserData(data.userProfile);
@@ -92,7 +82,7 @@ function UserProfile() {
   const getProfilePosts = async () => {
     const jwtToken = Cookies.get("jwt_token");
 
-    const apiUrl = `http://localhost:3002/users/posts/${name}`;
+    const url = `${apiUrl}/users/posts/${name}`;
     const options = {
       method: "GET",
       headers: {
@@ -101,7 +91,7 @@ function UserProfile() {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         if (data.posts.length !== 0) {

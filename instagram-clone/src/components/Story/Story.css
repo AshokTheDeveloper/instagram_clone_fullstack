@@ -71,21 +71,30 @@
 }
 
 .your-story-icon {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   color: rgb(238, 238, 238);
   background: rgb(255, 255, 255);
   background: none;
   border-radius: 50%;
 }
 
+.your-story-image-profile {
+  width: 56px;
+  height: 56px;
+  background: none;
+  border-radius: 50%;
+}
+
 .story-add-icon {
   color: rgb(0, 149, 246);
+  background: #ffffff;
+  border-radius: 50%;
   width: 22px;
   height: 22px;
   position: absolute;
-  bottom: 12px;
-  right: 8px;
+  bottom: 8px;
+  right: 6px;
 }
 
 .home-story-popup-container {
@@ -162,10 +171,17 @@
   }
 
   .your-story-icon {
-    width: 53px;
-    height: 53px;
+    width: 62px;
+    height: 62px;
     color: rgb(238, 238, 238);
     background: rgb(255, 255, 255);
+    border-radius: 50%;
+  }
+
+  .your-story-image-profile {
+    width: 50px;
+    height: 50px;
+    background: none;
     border-radius: 50%;
   }
 

@@ -1,19 +1,28 @@
 const Story = require("../../models/story.model");
+const mongoose = require("mongoose");
 
 const getHomeStories = async (req, res) => {
   try {
+    const { id } = req.user;
+    const idOfUser = new mongoose.Types.ObjectId(id);
+
     // Fetch distinct users with stories
     const stories = await Story.aggregate([
       {
+        $match: {
+          userId: { $ne: idOfUser },
+        },
+      },
+      {
         $lookup: {
-          from: "users", 
+          from: "users",
           localField: "userId",
           foreignField: "_id",
           as: "userDetails",
         },
       },
       {
-        $unwind: "$userDetails", 
+        $unwind: "$userDetails",
       },
       {
         $group: {

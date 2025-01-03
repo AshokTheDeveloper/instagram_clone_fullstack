@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../Header/Header";
 import { Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import Post from "../Post/Post";
 import Suggestions from "../Suggestions/Suggestions";
-import "./home.css";
 import Story from "../Story/Story";
+import { UserContext } from "../../context/UserContext";
+import "./home.css";
 
 function Home() {
+  const { apiUrl } = useContext(UserContext);
   const [postsData, setPostsData] = useState([]);
 
   useEffect(() => {
@@ -21,7 +23,7 @@ function Home() {
 
   const getHomePosts = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = "http://localhost:3002/users/home-posts";
+    const url = `${apiUrl}/users/home-posts`;
     const options = {
       method: "GET",
       headers: {
@@ -30,7 +32,7 @@ function Home() {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         setPostsData(data.posts);

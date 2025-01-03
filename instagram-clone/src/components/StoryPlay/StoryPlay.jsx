@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { IoMdClose, IoIosPlay, IoIosPause } from "react-icons/io";
@@ -9,10 +9,12 @@ import { IoPersonCircle } from "react-icons/io5";
 import StorySlider from "../StorySlider/StorySlider";
 
 import "./StoryPlay.css";
+import { UserContext } from "../../context/UserContext";
 
 const StoryPlay = () => {
   const { name } = useParams();
   const navigate = useNavigate();
+  const { apiUrl } = useContext(UserContext);
 
   const [storiesData, setStoriesData] = useState([]);
   const [progress, setProgress] = useState(0);
@@ -49,7 +51,7 @@ const StoryPlay = () => {
 
   const getStories = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = `http://localhost:3002/users/stories/${name}`;
+    const url = `${apiUrl}/users/stories/${name}`;
     const options = {
       method: "GET",
       headers: {
@@ -59,7 +61,7 @@ const StoryPlay = () => {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         if (data.stories.length !== 0) {

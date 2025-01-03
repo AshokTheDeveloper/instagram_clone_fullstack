@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import { LuDot } from "react-icons/lu";
@@ -10,6 +10,8 @@ import { CiFaceSmile } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
 import EmojiPicker from "emoji-picker-react";
 import Comments from "../Comments/Comments";
+import { UserContext } from "../../context/UserContext";
+
 import "./post.css";
 
 const Post = (props) => {
@@ -17,6 +19,8 @@ const Post = (props) => {
 
   const { username, imageUrl, profilePic, caption, _id, createdAt } =
     postDetails;
+
+  const { apiUrl } = useContext(UserContext);
 
   const [commentInput, setCommentInput] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -43,7 +47,7 @@ const Post = (props) => {
     };
 
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = "http://localhost:3002/users/post-comment";
+    const url = `${apiUrl}/users/post-comment`;
     const options = {
       method: "POST",
       headers: {
@@ -54,7 +58,7 @@ const Post = (props) => {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
       }
@@ -97,7 +101,7 @@ const Post = (props) => {
     };
 
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = "http://localhost:3002/users/like-post";
+    const url = `${apiUrl}/users/like-post`;
     const options = {
       method: "POST",
       headers: {
@@ -108,7 +112,7 @@ const Post = (props) => {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         setHasLiked(true);
@@ -137,7 +141,7 @@ const Post = (props) => {
     };
 
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = `http://localhost:3002/users/unlike-post`;
+    const url = `${apiUrl}/users/unlike-post`;
     const options = {
       method: "POST",
       headers: {
@@ -148,7 +152,7 @@ const Post = (props) => {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         setHasLiked(false);
@@ -163,7 +167,7 @@ const Post = (props) => {
   // Likes count handle
   const getLikesCount = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = `http://localhost:3002/users/likes/${_id}`;
+    const url = `${apiUrl}/users/likes/${_id}`;
     const options = {
       method: "GET",
       headers: {
@@ -172,7 +176,7 @@ const Post = (props) => {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         const count = data.likesCount ?? 0;
@@ -186,7 +190,7 @@ const Post = (props) => {
   // Liked status
   const getLikedStatus = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = `http://localhost:3002/users/liked-status/${_id}`;
+    const url = `${apiUrl}/users/liked-status/${_id}`;
     const options = {
       method: "GET",
       headers: {
@@ -194,7 +198,7 @@ const Post = (props) => {
       },
     };
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         setHasLiked(data.isLiked);

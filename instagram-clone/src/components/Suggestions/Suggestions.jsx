@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import { IoPersonCircle } from "react-icons/io5";
 import { FaRegCopyright } from "react-icons/fa";
 import SuggestionItem from "../SuggestionItem/SuggestionItem";
 import SuggestionsFooter from "../SuggestionsFooter/SuggestionsFooter";
+import { UserContext } from "../../context/UserContext";
 import "./suggestions.css";
 
 const Suggestions = () => {
   const [usersData, setUsersData] = useState([]);
   const [profileUser, setProfileUser] = useState("");
+  const { apiUrl } = useContext(UserContext);
 
   useEffect(() => {
     getUsers();
@@ -17,7 +19,7 @@ const Suggestions = () => {
   }, []);
 
   const getProfileUser = async () => {
-    const apiUrl = "http://localhost:3002/users/profile-user";
+    const url = `${apiUrl}/users/profile-user`;
     const jwtToken = Cookies.get("jwt_token");
     const options = {
       method: "GET",
@@ -27,7 +29,7 @@ const Suggestions = () => {
       },
     };
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         setProfileUser(data.profileUser);
@@ -39,7 +41,7 @@ const Suggestions = () => {
 
   const getUsers = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = "http://localhost:3002/users/suggestion-users";
+    const url = `${apiUrl}/users/suggestion-users`;
     const options = {
       method: "GET",
       headers: {
@@ -47,7 +49,7 @@ const Suggestions = () => {
       },
     };
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         setUsersData(data.users);
@@ -62,7 +64,7 @@ const Suggestions = () => {
 
   const onClickFollowUser = async (id) => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = "http://localhost:3002/users/follow-user";
+    const url = `${apiUrl}/users/follow-user`;
 
     const newUser = {
       userId: id,
@@ -77,9 +79,8 @@ const Suggestions = () => {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
-      console.log("follow user: ", data);
     } catch (error) {
       console.log("Response error: ", error.message);
     }

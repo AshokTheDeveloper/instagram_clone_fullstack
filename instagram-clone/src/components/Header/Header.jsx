@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import { GoHomeFill, GoHome } from "react-icons/go";
@@ -20,12 +20,13 @@ import { RiSettings2Line, RiMessengerLine } from "react-icons/ri";
 import { LuActivitySquare } from "react-icons/lu";
 import { TbMessageReport } from "react-icons/tb";
 import { IoMdClose } from "react-icons/io";
-
-import "./header.css";
 import SearchUserItem from "../SearchUserItem/SearchUserItem";
+import { UserContext } from "../../context/UserContext";
+import "./header.css";
 
 const Header = () => {
   const navigate = useNavigate();
+  const { apiUrl } = useContext(UserContext);
 
   const [userData, setUserData] = useState({});
   const [showSearch, setShowSearch] = useState(true);
@@ -55,7 +56,7 @@ const Header = () => {
   }, []);
 
   const getUser = async () => {
-    const apiUrl = "http://localhost:3002/users/profile-user";
+    const url = `${apiUrl}/users/profile-user`;
     const jwtToken = Cookies.get("jwt_token");
     const options = {
       method: "GET",
@@ -65,7 +66,7 @@ const Header = () => {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         setUserData(data.profileUser);
@@ -103,7 +104,7 @@ const Header = () => {
       caption: captionText,
     };
 
-    const apiUrl = "http://localhost:3002/users/create-post";
+    const url = `${apiUrl}/users/create-post`;
     const jwtToken = Cookies.get("jwt_token");
     const options = {
       method: "POST",
@@ -114,7 +115,7 @@ const Header = () => {
       body: JSON.stringify(newPost),
     };
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         console.log(data);
@@ -212,7 +213,7 @@ const Header = () => {
       return;
     }
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = `http://localhost:3002/users/search?query=${searchInput}`;
+    const url = `${apiUrl}/users/search?query=${searchInput}`;
     const options = {
       method: "GET",
       headers: {
@@ -221,7 +222,7 @@ const Header = () => {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         setSearchResult(data.users);

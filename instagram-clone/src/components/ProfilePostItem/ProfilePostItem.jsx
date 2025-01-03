@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { IoMdHeart } from "react-icons/io";
 import { BiSolidMessageRounded } from "react-icons/bi";
 import "./profilepostitem.css";
+import { UserContext } from "../../context/UserContext";
 
 const ProfilePostItem = (props) => {
+  const { apiUrl } = useContext(UserContext);
+
   const [likeAndCommentCount, setLikeAndCommentCount] = useState({});
 
   const { postDetails } = props;
@@ -16,7 +19,7 @@ const ProfilePostItem = (props) => {
 
   const getLikeAndCommentCounts = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = `http://localhost:3002/users/lc-count/${_id}`;
+    const url = `${apiUrl}/users/lc-count/${_id}`;
     const options = {
       method: "GET",
       headers: {
@@ -25,7 +28,7 @@ const ProfilePostItem = (props) => {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         setLikeAndCommentCount(data.counts);

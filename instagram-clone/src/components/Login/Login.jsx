@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import { BiLogoFacebookCircle } from "react-icons/bi";
 import Cookies from "js-cookie";
-import "./login.css";
+import { UserContext } from "../../context/UserContext";
+import "./Login.css";
 
 function Login() {
   const navigate = useNavigate();
+  const { apiUrl } = useContext(UserContext);
 
   const [userDetails, setUserDetails] = useState({
     email: "",
@@ -49,7 +51,7 @@ function Login() {
       return;
     }
 
-    const apiUrl = "http://localhost:3002/users/login";
+    const url = `${apiUrl}/users/login`;
     const options = {
       method: "POST",
       headers: {
@@ -59,7 +61,7 @@ function Login() {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         onSubmitFormSuccess(data.jwt_token);

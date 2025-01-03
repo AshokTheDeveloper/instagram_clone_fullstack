@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useInRouterContext } from "react-router-dom";
 import Cookies from "js-cookie";
 import CommentItem from "../CommentItem/CommentItem";
 import { IoClose } from "react-icons/io5";
 import { CiFaceSmile } from "react-icons/ci";
 import EmojiPicker from "emoji-picker-react";
 import { IoIosArrowBack } from "react-icons/io";
-import "./comments.css";
+import { UserContext } from "../../context/UserContext";
+import "./Comments.css";
 
 const Comments = (props) => {
+  const { apiUrl } = useContext(UserContext);
+
   const { postDetails } = props;
   const { _id, imageUrl } = postDetails;
   const [comments, setComments] = useState([]);
@@ -21,7 +24,7 @@ const Comments = (props) => {
   }, []);
 
   const getComments = async () => {
-    const apiUrl = `http://localhost:3002/users/comments/${_id}`;
+    const url = `${apiUrl}/users/comments/${_id}`;
     const jwtToken = Cookies.get("jwt_token");
     const options = {
       method: "GET",
@@ -31,7 +34,7 @@ const Comments = (props) => {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         if (data.comments.length !== 0) {

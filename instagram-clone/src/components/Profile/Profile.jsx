@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Cookies from "js-cookie";
 import Header from "../Header/Header";
 import { PiGearSixLight } from "react-icons/pi";
@@ -10,6 +10,7 @@ import { BiGrid, BiMoviePlay, BiUserPin } from "react-icons/bi";
 import { IoMdClose } from "react-icons/io";
 import ProfilePostItem from "../ProfilePostItem/ProfilePostItem";
 import "./profile.css";
+import { UserContext } from "../../context/UserContext";
 
 const apiStatusConstants = {
   initial: "INITIAL",
@@ -44,6 +45,8 @@ const tabs = [
 
 function Profile() {
   const fileInputRef = useRef(null);
+  const { apiUrl } = useContext(UserContext);
+
   const [postsData, setPostsData] = useState([]);
   const [followCount, setFollowCount] = useState({});
   const [profilePicInput, setProfilePicInput] = useState("");
@@ -51,7 +54,6 @@ function Profile() {
   const [showUpdatePopup, setShowUpdatePopup] = useState(false);
   const [activeTab, setActiveTab] = useState("posts");
   const [showStoryPopup, setShowStoryPopup] = useState(false);
-
 
   useEffect(() => {
     getProfilePosts();
@@ -71,7 +73,7 @@ function Profile() {
 
   const getFollowersAndFollowingCount = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = "http://localhost:3002/users/follow-count";
+    const url = `${apiUrl}/users/follow-count`;
     const options = {
       method: "GET",
       headers: {
@@ -80,7 +82,7 @@ function Profile() {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         setFollowCount(data.followCount);
@@ -96,7 +98,7 @@ function Profile() {
   const getProfilePosts = async () => {
     const jwtToken = Cookies.get("jwt_token");
 
-    const apiUrl = "http://localhost:3002/users/profile-posts";
+    const url = `${apiUrl}/users/profile-posts`;
     const options = {
       method: "GET",
       headers: {
@@ -105,7 +107,7 @@ function Profile() {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         setPostsData(data.posts);
@@ -155,7 +157,7 @@ function Profile() {
 
   const uploadProfileOnDatabase = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = "http://localhost:3002/users/upload-profile";
+    const url = `${apiUrl}/users/upload-profile`;
     const newProfile = {
       profilePic: picture,
     };
@@ -169,7 +171,7 @@ function Profile() {
     };
 
     try {
-      const response = await fetch(apiUrl, options);
+      const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
         reloadOnPostUpload();

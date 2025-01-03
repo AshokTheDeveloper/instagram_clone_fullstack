@@ -22,7 +22,7 @@ const SuggestionItem = (props) => {
               className="suggestion-item-profile-pic"
             />
           ) : (
-            <IoPersonCircle className="suggestion-item-person-icon" />
+            <IoPersonCircle className="suggestion-item-profile-pic suggestion-item-person-icon" />
           )}
 
           <div className="suggestion-item-profile-link-container">
