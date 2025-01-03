@@ -6,7 +6,7 @@ import { IoClose } from "react-icons/io5";
 import { CiFaceSmile } from "react-icons/ci";
 import EmojiPicker from "emoji-picker-react";
 import { IoIosArrowBack } from "react-icons/io";
-import "./comments.css";
+import "./Comments.css";
 
 const Comments = (props) => {
   const { postDetails } = props;
