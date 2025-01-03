@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import { BiLogoFacebookCircle } from "react-icons/bi";
 import Cookies from "js-cookie";
-import "./login.css";
+import "./Login.css";
 
 function Login() {
   const navigate = useNavigate();
