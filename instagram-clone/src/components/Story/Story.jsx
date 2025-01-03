@@ -82,7 +82,7 @@ const Story = () => {
     }
 
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = `http://localhost:3002/users/story-upload`;
+    const apiUrl = `https://instagram-clone-backend-rfda.onrender.com/users/story-upload`;
 
     const newStory = {
       mediaUrl: story,
