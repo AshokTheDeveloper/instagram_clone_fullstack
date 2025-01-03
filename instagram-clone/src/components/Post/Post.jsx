@@ -43,7 +43,7 @@ const Post = (props) => {
     };
 
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = "http://localhost:3002/users/post-comment";
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/post-comment";
     const options = {
       method: "POST",
       headers: {
@@ -97,7 +97,7 @@ const Post = (props) => {
     };
 
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = "http://localhost:3002/users/like-post";
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/like-post";
     const options = {
       method: "POST",
       headers: {
@@ -137,7 +137,7 @@ const Post = (props) => {
     };
 
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = `http://localhost:3002/users/unlike-post`;
+    const apiUrl = `https://instagram-clone-backend-rfda.onrender.com/users/unlike-post`;
     const options = {
       method: "POST",
       headers: {
@@ -163,7 +163,7 @@ const Post = (props) => {
   // Likes count handle
   const getLikesCount = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = `http://localhost:3002/users/likes/${_id}`;
+    const apiUrl = `https://instagram-clone-backend-rfda.onrender.com/users/likes/${_id}`;
     const options = {
       method: "GET",
       headers: {
@@ -186,7 +186,7 @@ const Post = (props) => {
   // Liked status
   const getLikedStatus = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = `http://localhost:3002/users/liked-status/${_id}`;
+    const apiUrl = `https://instagram-clone-backend-rfda.onrender.com/users/liked-status/${_id}`;
     const options = {
       method: "GET",
       headers: {
