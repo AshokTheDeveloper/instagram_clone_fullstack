@@ -6,7 +6,10 @@ import { IoClose } from "react-icons/io5";
 import { CiFaceSmile } from "react-icons/ci";
 import EmojiPicker from "emoji-picker-react";
 import { IoIosArrowBack } from "react-icons/io";
+<<<<<<< HEAD
 import { UserContext } from "../../context/UserContext";
+=======
+>>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
 import "./Comments.css";
 
 const Comments = (props) => {
@@ -24,7 +27,11 @@ const Comments = (props) => {
   }, []);
 
   const getComments = async () => {
+<<<<<<< HEAD
     const url = `${apiUrl}/users/comments/${_id}`;
+=======
+    const apiUrl = `https://instagram-clone-backend-rfda.onrender.com/users/comments/${_id}`;
+>>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
     const jwtToken = Cookies.get("jwt_token");
     const options = {
       method: "GET",

@@ -56,7 +56,11 @@ const Header = () => {
   }, []);
 
   const getUser = async () => {
+<<<<<<< HEAD
     const url = `${apiUrl}/users/profile-user`;
+=======
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/profile-user";
+>>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
     const jwtToken = Cookies.get("jwt_token");
     const options = {
       method: "GET",
@@ -104,7 +108,11 @@ const Header = () => {
       caption: captionText,
     };
 
+<<<<<<< HEAD
     const url = `${apiUrl}/users/create-post`;
+=======
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/create-post";
+>>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
     const jwtToken = Cookies.get("jwt_token");
     const options = {
       method: "POST",
@@ -213,7 +221,11 @@ const Header = () => {
       return;
     }
     const jwtToken = Cookies.get("jwt_token");
+<<<<<<< HEAD
     const url = `${apiUrl}/users/search?query=${searchInput}`;
+=======
+    const apiUrl = `https://instagram-clone-backend-rfda.onrender.com/users/search?query=${searchInput}`;
+>>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
     const options = {
       method: "GET",
       headers: {

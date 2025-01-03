@@ -2,7 +2,10 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import { BiLogoFacebookCircle } from "react-icons/bi";
 import Cookies from "js-cookie";
+<<<<<<< HEAD
 import { UserContext } from "../../context/UserContext";
+=======
+>>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
 import "./Login.css";
 
 function Login() {
@@ -51,7 +54,11 @@ function Login() {
       return;
     }
 
+<<<<<<< HEAD
     const url = `${apiUrl}/users/login`;
+=======
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/login";
+>>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
     const options = {
       method: "POST",
       headers: {

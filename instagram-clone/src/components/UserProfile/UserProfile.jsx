@@ -60,7 +60,11 @@ function UserProfile() {
   const getUserProfile = async () => {
     const jwtToken = Cookies.get("jwt_token");
 
+<<<<<<< HEAD
     const url = `${apiUrl}/users/${name}`;
+=======
+    const apiUrl = `https://instagram-clone-backend-rfda.onrender.com/users/${name}`;
+>>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
     const options = {
       method: "GET",
       headers: {
@@ -82,7 +86,11 @@ function UserProfile() {
   const getProfilePosts = async () => {
     const jwtToken = Cookies.get("jwt_token");
 
+<<<<<<< HEAD
     const url = `${apiUrl}/users/posts/${name}`;
+=======
+    const apiUrl = `https://instagram-clone-backend-rfda.onrender.com/users/posts/${name}`;
+>>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
     const options = {
       method: "GET",
       headers: {

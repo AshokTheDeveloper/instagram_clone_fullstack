@@ -64,7 +64,11 @@ function SignUp() {
       return;
     }
 
+<<<<<<< HEAD
     const url = `${apiUrl}/users/signup`;
+=======
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/signup";
+>>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
     const options = {
       method: "POST",
       headers: {

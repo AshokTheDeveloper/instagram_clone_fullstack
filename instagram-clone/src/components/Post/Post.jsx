@@ -47,7 +47,11 @@ const Post = (props) => {
     };
 
     const jwtToken = Cookies.get("jwt_token");
+<<<<<<< HEAD
     const url = `${apiUrl}/users/post-comment`;
+=======
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/post-comment";
+>>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
     const options = {
       method: "POST",
       headers: {
@@ -101,7 +105,11 @@ const Post = (props) => {
     };
 
     const jwtToken = Cookies.get("jwt_token");
+<<<<<<< HEAD
     const url = `${apiUrl}/users/like-post`;
+=======
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/like-post";
+>>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
     const options = {
       method: "POST",
       headers: {
@@ -141,7 +149,11 @@ const Post = (props) => {
     };
 
     const jwtToken = Cookies.get("jwt_token");
+<<<<<<< HEAD
     const url = `${apiUrl}/users/unlike-post`;
+=======
+    const apiUrl = `https://instagram-clone-backend-rfda.onrender.com/users/unlike-post`;
+>>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
     const options = {
       method: "POST",
       headers: {
@@ -167,7 +179,11 @@ const Post = (props) => {
   // Likes count handle
   const getLikesCount = async () => {
     const jwtToken = Cookies.get("jwt_token");
+<<<<<<< HEAD
     const url = `${apiUrl}/users/likes/${_id}`;
+=======
+    const apiUrl = `https://instagram-clone-backend-rfda.onrender.com/users/likes/${_id}`;
+>>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
     const options = {
       method: "GET",
       headers: {
@@ -190,7 +206,11 @@ const Post = (props) => {
   // Liked status
   const getLikedStatus = async () => {
     const jwtToken = Cookies.get("jwt_token");
+<<<<<<< HEAD
     const url = `${apiUrl}/users/liked-status/${_id}`;
+=======
+    const apiUrl = `https://instagram-clone-backend-rfda.onrender.com/users/liked-status/${_id}`;
+>>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
     const options = {
       method: "GET",
       headers: {
