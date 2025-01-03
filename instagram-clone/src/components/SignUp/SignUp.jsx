@@ -62,7 +62,7 @@ function SignUp() {
       return;
     }
 
-    const apiUrl = "http://localhost:3002/users/signup";
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/signup";
     const options = {
       method: "POST",
       headers: {
