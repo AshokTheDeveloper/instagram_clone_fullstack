@@ -94,25 +94,22 @@ const StoryPlay = () => {
     }
   };
 
-  const getData = () => {
-    const story = storiesData[currentStoryIndex];
-    let newObj = {};
-    if (story !== undefined) {
-      const { username, profilePic, createAt } = story;
-      newObj = {
-        username,
-        profilePic,
-        createAt,
-      };
-    }
-    return newObj;
-  };
+  const story = storiesData[currentStoryIndex];
+  let newObj = {};
+  if (story !== undefined) {
+    const { username, profilePic, createdAt } = story;
+    newObj = {
+      username,
+      profilePic,
+      createdAt,
+    };
+  }
 
-  const { username, profilePic, createAt } = getData();
+  const { username, profilePic, createdAt } = newObj;
 
   const formatRelativeTime = () => {
     const now = new Date();
-    const diffInSeconds = Math.floor((now - new Date(createAt)) / 1000);
+    const diffInSeconds = Math.floor((now - new Date(createdAt)) / 1000);
     const diffInMinutes = Math.floor(diffInSeconds / 60);
     const diffInHours = Math.floor(diffInMinutes / 60);
     const diffInDays = Math.floor(diffInHours / 24);

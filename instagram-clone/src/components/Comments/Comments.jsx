@@ -10,7 +10,7 @@ import { UserContext } from "../../context/UserContext";
 import "./Comments.css";
 
 const Comments = (props) => {
-  const { apiUrl } = useContext(UserContext);
+  const { apiUrl, user } = useContext(UserContext);
 
   const { postDetails } = props;
   const { _id, imageUrl } = postDetails;
@@ -107,7 +107,14 @@ const Comments = (props) => {
             />
           </div>
           <div className="comment-and-input-container">
-            <div className="comment-popup-top-profile-section">A</div>
+            <div className="comment-popup-top-profile-section">
+              <img
+                src={user.profilePic}
+                alt=""
+                className="comment-popup-profile"
+              />
+              <p className="comments-popup-username">{user.username}</p>
+            </div>
             <div className="comments-scroll-container">
               <button
                 onClick={popupHandler}
