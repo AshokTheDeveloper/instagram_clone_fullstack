@@ -1,0 +1,23 @@
+.suggestions-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 287px;
+  padding: 0;
+  margin-left: 4px;
+}
+
+.suggestions-footer li {
+  list-style-type: none;
+}
+
+.suggestions-footer .footer-links {
+  text-decoration: none;
+  color: lightgray;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.footer-links-dot {
+  color: lightgray;
+}

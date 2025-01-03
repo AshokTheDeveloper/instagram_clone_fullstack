@@ -1,0 +1,17 @@
+.story-play-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+  border-radius: 4px;
+  margin: auto;
+}
+
+
+.story-play-slider img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  object-fit: contain;
+}

@@ -1,0 +1,456 @@
+.user-profile-bg-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 277px;
+}
+
+@media (max-width: 1024px) {
+  .user-profile-bg-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .user-profile-bg-container {
+    display: none;
+  }
+}
+
+.user-profile-container {
+  min-height: 100vh;
+  margin: 0px 30px 30px 0px;
+  padding: 30px 20px 0px;
+}
+
+.another-user-profile-details-container {
+  display: flex;
+  flex-direction: column;
+  height: 415px;
+  width: 935px;
+}
+
+.user-profile-stories-container {
+  height: 134px;
+}
+
+.another-user-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 60px;
+  margin-bottom: 40px;
+}
+
+.profile-pic-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #feda75, #fa7e1e, #d62976, #962fbf);
+  margin-right: 80px;
+}
+
+.profile-gradient-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.null-profile-pic-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 80px;
+  background: rgb(134, 134, 134);
+}
+
+.null-profile-picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  color: rgb(97, 97, 97);
+}
+
+.another-user-profile-details {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 200px;
+}
+
+.another-profile-user-name-container {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.user-profile-icons {
+  width: 25px;
+  height: 25px;
+}
+
+.profile-username {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  width: 100px;
+  font-weight: 500;
+  height: 32px;
+  line-height: 32px;
+  margin-right: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.profile-user-buttons {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  font-size: 14px;
+  margin-right: 8px;
+  width: 120px;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0px 16px;
+  font-weight: 500;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.profile-user-settings-button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* -------------- Followers ------------ */
+
+.another-user-profile-followers-container {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 26px;
+}
+
+.user-profile-followers-item {
+  margin-right: 45px;
+  font-size: 16px;
+}
+
+.profile-user-bio-container {
+  min-height: 90px;
+}
+
+.profile-bio-username {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.profile-bio-item-container {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 4px;
+}
+
+.profile-bio-item {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.profile-media-link-icon {
+  margin-right: 6px;
+}
+
+.profile-media-links {
+  font-size: 14px;
+  color: #003768;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* Stories */
+.profile-user-stories-container {
+  height: 130px;
+  margin-bottom: 60px;
+}
+
+.stories-adding-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  outline: none;
+  height: 87px;
+  width: 87px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  cursor: pointer;
+  margin-left: 40px;
+  margin-bottom: 8px;
+}
+
+.stories-icons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 77px;
+  height: 77px;
+  border-radius: 50%;
+  background: #f5f5f5;
+}
+
+.user-profile-stories-icon {
+  width: 44px;
+  height: 44px;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.new-story-text {
+  margin-left: 68px;
+  font-size: 14px;
+}
+*/
+
+/* --------- Posts -------------- */
+
+ .profile-user-posts-container {
+  height: 100vh;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.posts-tabs-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 53px;
+}
+
+.profile-post-tab-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  color: #737373;
+  height: 53px;
+  margin-right: 50px;
+}
+
+.profile-post-tab-button.active-tab {
+  border-top: 1px solid #000000;
+}
+
+.profile-posts-icons {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+.profile-posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 1002px;
+  margin: 0 auto;
+  padding: 0;
+  align-content: start;
+}
+
+/* ============================ Mobile view profile ========================== */
+.profile-mobile-view-container {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .profile-mobile-view-container {
+    display: block;
+    min-height: 100vh;
+    width: 100%;
+    margin-top: 60px;
+  }
+
+  .profile-mobile-view-top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 12px 6%;
+  }
+
+  .profile-mobile-view-null-user-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    background: rgb(126, 126, 126);
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .profile-mobile-view-null-user {
+    width: 50px;
+    height: 50px;
+    color: rgb(85, 85, 85);
+  }
+
+  .profile-mobile-view-user-camera-icon {
+    color: #ffffff;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 302;
+  }
+
+  .profile-mobile-view-top-container .profile-mobile-view-user {
+    background: rgb(172, 172, 172);
+    width: 18%;
+    height: 18%;
+    border-radius: 50%;
+    color: rgb(240, 240, 240);
+  }
+
+  .profile-mobile-view-user-profile-image {
+    width: 77px;
+    height: 77px;
+    border-radius: 50%;
+  }
+
+  .profile-mobile-view-top-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-mobile-view-top-container p {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .profile-mobile-view-top-container .profile-mobile-view-counts {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .profile-mobile-view-bio-container {
+    margin-bottom: 16px;
+    padding: 0 6%;
+  }
+
+  .profile-mobile-view-bio-container p {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .profile-mobile-view-contact-share-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 4px;
+    margin-bottom: 16px;
+    padding: 0 2%;
+  }
+
+  .profile-mobile-view-contact-share-container button {
+    background: rgb(240, 240, 240);
+    padding: 8px 8px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    font-weight: 500;
+    width: 100%;
+    min-width: 90px;
+  }
+
+  .profile-mobile-view-posts-tabs-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .profile-mobile-view-posts-tabs-container button {
+    background: none;
+    border: none;
+    margin-bottom: 4px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .profile-mobile-view-posts-tabs-container
+    .profile-mobile-view-profile-posts-icons {
+    width: 18px;
+    height: 18px;
+    color: rgb(73, 73, 73);
+  }
+
+  .mobile-saved {
+    width: 16px;
+    height: 18px;
+    color: rgb(73, 73, 73);
+  }
+
+  .profile-mobile-view-posts-tabs-container button.mobile-active-tab {
+    border-bottom: 2px solid #000000;
+    color: #000000;
+  }
+
+  .profile-mobile-view-posts-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    width: 100%;
+    min-height: 100vh;
+    align-content: flex-start;
+  }
+
+  .profile-mobile-view-posts-image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .profile-mobile-view-post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

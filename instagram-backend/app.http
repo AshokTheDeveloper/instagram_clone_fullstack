@@ -1,0 +1,28 @@
+POST http://localhost:3002/users/signup
+Content-Type: application/json
+
+{
+    "fullname": "Ashok",
+    "username": "ashokdavid",
+    "email": "ashok@gmail.com",
+    "password": "123456"
+}
+
+###
+POST http://localhost:3002/users/login
+Content-Type: application/json
+
+{
+    "email": "ashok@gmail.com",
+    "password": "123456"
+}
+
+###
+POST http://localhost:3002/users/create-post
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NmQ1ZWRhN2I2ZDcwMDI0ODEwYzE0NCIsImlhdCI6MTczNTIyMDk2NCwiZXhwIjoxNzM1ODI1NzY0fQ.T5kAsnk8_xe-LucbXPmi4p_K_-gTskjhx8NiQSU14es
+
+{
+    "caption": "Do something",
+    "imageUrl": "https://storage.googleapis.com/pod_public/1300/166584.jpg"
+}

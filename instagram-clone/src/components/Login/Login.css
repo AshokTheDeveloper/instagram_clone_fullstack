@@ -1,0 +1,145 @@
+.inst-login-bg-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #000000;
+  min-height: 100vh;
+}
+
+.inst-login-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 348px;
+  border: 1px solid rgb(54, 54, 54);
+  border-radius: 1px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 268px;
+}
+
+.login-form input {
+  width: 268px;
+  height: 38px;
+  background: #121212;
+  border: none;
+  outline: none;
+  padding: 9px 0 7px 8px;
+  color: rgb(245, 245, 245);
+  margin-bottom: 6px;
+  border: 1px solid rgb(54, 54, 54);
+  border-radius: 4px;
+}
+.login-button {
+  width: 268px;
+  height: 34px;
+  color: #ffffff;
+  background: #0095f6;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  margin-bottom: 22px;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .inst-login-bg-container {
+    padding: 30px 0px;
+  }
+  .inst-login-form-wrapper {
+    width: 300px;
+  }
+}
+
+.hr-line-or-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.hr-line {
+  width: 103px;
+  height: 1px;
+  background: #262626;
+}
+
+.or-text {
+  margin: 0 18px;
+  font-size: 13px;
+  color: #a8a8a8;
+}
+
+.login-navigation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 70px;
+  border: 1px solid #242424;
+  margin-bottom: 16px;
+}
+
+.log-in-nav-link {
+  color: #0096f6;
+}
+
+.login-link-text {
+  text-decoration: none;
+  color: #0096f6;
+  margin-left: 4px;
+}
+
+.login-with-facebook-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 268px;
+  background: none;
+  outline: none;
+  border: none;
+  color: #0096f6;
+  margin-bottom: 18px;
+}
+
+.login-facebook-icon {
+  font-size: 26px;
+  margin-right: 8px;
+}
+
+.login-forgot-password {
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+
+.get-app-text {
+  color: #f5f5f5;
+  margin-bottom: 16px;
+}
+
+.error-msg {
+  color: #ed4956;
+  font-size: 13px;
+  text-align: center;
+  width: 268px;
+  margin: 10px 40px 20px 40px;
+  line-height: 16px;
+}
+
+@media (max-width: 500px) {
+  .login-navigation-container {
+    width: 300px;
+  }
+}

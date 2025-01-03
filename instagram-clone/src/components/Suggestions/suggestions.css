@@ -1,0 +1,124 @@
+.suggestions-bg-container {
+  width: 383px;
+  height: 546px;
+  margin: 32px 0 0 56px;
+}
+
+@media (max-width: 1024px) {
+  .suggestions-bg-container {
+    display: none;
+    overflow: hidden;
+  }
+}
+
+.suggestions-container {
+  width: 319px;
+  margin: 0 0 0 64px;
+  height: 546px;
+  padding: 0 8px 0 8px;
+}
+
+.suggestions-switch-user-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.suggestions-user-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.suggestions-user-profile-pic {
+  width: 44px;
+  height: 44px;
+  margin-right: 16px;
+  border-radius: 50%;
+}
+
+.suggestions-person-icon {
+  width: 56px;
+  height: 56px;
+  color: lightgray;
+  margin-right: 16px;
+}
+
+.suggestions-profile-link-container {
+  min-width: 183px;
+}
+
+.suggestions-profile-link {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.suggestions-username {
+  color: gray;
+  font-size: 14px;
+}
+
+.suggestions-switch-button {
+  background: none;
+  border: none;
+  outline: none;
+  color: #0095f6;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.suggestions {
+  margin-top: 16px;
+}
+
+.suggestions-view-all-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.suggestions-view-all-button {
+  background: none;
+  border: none;
+  outline: none;
+  color: #000000;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.suggestion-suggested-text {
+  font-size: 14px;
+  color: gray;
+  font-weight: 600;
+}
+
+.suggestions-items {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 16px;
+  margin-bottom: 32px;
+}
+
+.suggestions-footer {
+  margin-bottom: 8px;
+}
+
+.copyright-info-container {
+  display: flex;
+  margin-left: 8px;
+}
+
+.copyright-icon {
+  color: lightgray;
+  font-size: 12px;
+  margin-right: 4px;
+}
+
+.copyright-text {
+  color: lightgray;
+  font-size: 12px;
+}

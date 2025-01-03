@@ -1,0 +1,215 @@
+.inst-signup-bg-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #000000;
+  min-height: 100vh;
+}
+
+.inst-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 348px;
+  border: 1px solid rgb(54, 54, 54);
+  border-radius: 1px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 500px) {
+  .inst-signup-bg-container {
+    padding: 30px 30px;
+  }
+
+  .inst-form-wrapper {
+    width: 300px;
+    padding: 0 12px;
+  }
+}
+
+.instagram-logo {
+  width: 175px;
+  margin-top: 36px;
+  margin-bottom: 16px;
+}
+
+.signup-caption {
+  color: #a8a8a8;
+  font-size: 16px;
+  text-align: center;
+  max-width: 268px;
+  margin-bottom: 16px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.login-with-fb-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 268px;
+  height: 34px;
+  background: #0095f6;
+  padding: 7px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .instagram-logo {
+    width: 150px;
+  }
+
+  .signup-caption {
+    font-size: 14px;
+  }
+}
+
+.signup-fb-icon {
+  font-size: 18px;
+  margin-right: 6px;
+}
+
+.hr-line-or-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.hr-line {
+  width: 103px;
+  height: 1px;
+  background: #262626;
+}
+
+.or-text {
+  margin: 0 18px;
+  font-size: 13px;
+  color: #a8a8a8;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 268px;
+}
+
+.signup-form input {
+  width: 268px;
+  height: 38px;
+  background: #121212;
+  border: none;
+  outline: none;
+  padding: 9px 0 7px 8px;
+  color: rgb(245, 245, 245);
+  margin-bottom: 6px;
+  border: 1px solid rgb(54, 54, 54);
+  border-radius: 4px;
+}
+
+.signup-bottom-caption {
+  width: 260px;
+  text-align: center;
+  min-width: 0;
+  color: #a8a8a8;
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 16px;
+  font-family: "Instagram Sans UI", "apple-system", BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin-bottom: 18px;
+}
+
+.signup-privacy-policy-text {
+  width: 260px;
+  text-align: center;
+  min-width: 0;
+  color: #a8a8a8;
+  font-size: 12px;
+  line-height: 16px;
+  font-family: "Instagram Sans UI", "apple-system", BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin-bottom: 18px;
+}
+
+.signup-button {
+  width: 268px;
+  height: 34px;
+  color: #ffffff;
+  background: #0095f6;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  margin-bottom: 36px;
+  cursor: pointer;
+}
+
+.signup-terms-and-conditions-text {
+  color: #ffffff;
+  margin-left: 4px;
+}
+
+@media (max-width: 500px) {
+  .signup-bottom-caption {
+   
+  }
+}
+
+.signup-navigation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 70px;
+  border: 1px solid #242424;
+  margin-bottom: 16px;
+}
+
+.login-in-signup-text {
+  font-size: 14px;
+  color: #f5f5f5;
+}
+
+.log-in-nav-link {
+  color: #0096f6;
+}
+
+.signup-link-text {
+  text-decoration: none;
+  color: #0096f6;
+  margin-left: 4px;
+}
+
+.get-app-text {
+  color: #f5f5f5;
+  margin-bottom: 16px;
+}
+
+.signup-error-msg {
+  color: red;
+  font-size: 12px;
+}
+
+@media (max-width: 500px) {
+  .signup-navigation-container {
+    width: 300px;
+  }
+
+  .get-app-text {
+    font-size: 14px;
+  }
+}

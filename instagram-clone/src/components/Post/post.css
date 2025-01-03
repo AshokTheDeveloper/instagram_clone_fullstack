@@ -1,0 +1,381 @@
+.post-bg-container {
+  width: 468px;
+  list-style-type: none;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 18px;
+}
+
+@media (max-width: 768px) {
+  .post-bg-container {
+    max-width: 100%;
+  }
+}
+
+.post-top-section-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+  .post-top-section-container {
+    padding: 0 12px;
+  }
+}
+
+.post-profile-and-username-container {
+  display: flex;
+  align-items: center;
+  height: 34px;
+}
+
+.post-profile-gradient-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #feda75, #fa7e1e, #d62976, #962fbf);
+  margin-right: 6px;
+}
+
+.post-profile-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.post-profile-picture {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.null-post-profile-picture {
+  width: 20px;
+  height: 20px;
+  color: rgb(185, 185, 185);
+}
+
+@media (max-width: 768px) {
+  .post-profile-gradient-container {
+    width: 32px;
+    height: 32px;
+  }
+
+  .post-profile-container {
+    width: 28px;
+    height: 28px;
+  }
+  .post-profile-picture {
+    width: 24px;
+    height: 24px;
+  }
+
+  .null-post-profile-picture {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.username-nation-status-container {
+  display: flex;
+}
+
+.post-username-link {
+  font-size: 14px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.post-user-nation {
+  font-size: 14px;
+}
+
+.post-posted-time {
+  font-size: 14px;
+}
+
+.post-followed-button {
+  font-size: 14px;
+  color: #0095f6;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.post-top-edit-button {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.post-three-dots-icon {
+  font-size: 18px;
+}
+
+.post-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 480px;
+  max-width: 468px;
+  overflow: hidden;
+  margin-bottom: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .post-container {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+/* Post heart animation */
+.liked-heart-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+  display: none;
+  animation: popAndTilt 1.3s ease-in-out forwards;
+}
+
+.liked-heart-image.show-heart {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .liked-heart-image {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@keyframes popAndTilt {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5) rotate(-40deg);
+    opacity: 0;
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(1.1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -500%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(-50%, -500%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -500%) scale(1) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+/* ----------------------------------------------------- */
+
+.posts-post-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .posts-post-image {
+    min-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+}
+
+.post-like-comment-share-icons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 500px) {
+  .post-like-comment-share-icons-container {
+    padding: 4px 12px;
+  }
+}
+
+.post-bottom-section-button {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.saved-button {
+  margin: 0;
+}
+
+.posts-icons {
+  width: 25px;
+  height: 25px;
+}
+
+@media (max-width: 768px) {
+  .posts-icons {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.liked-heart-icon {
+  color: rgba(255, 48, 64);
+}
+
+.posts-saved-image {
+  width: 20px;
+  height: 22px;
+}
+
+.post-likes-count-container {
+  height: 18px;
+}
+
+@media (max-width: 500px) {
+  .post-likes-count-container {
+    padding: 0 12px;
+  }
+}
+
+.posts-likes-counter {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.username-caption-container {
+  margin-bottom: 4px;
+}
+
+@media (max-width: 500px) {
+  .username-caption-container {
+    padding: 0 12px;
+  }
+}
+
+.post-caption-username {
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 4px;
+  color: #000000;
+}
+
+.post-caption {
+  font-size: 14px;
+}
+
+.post-comments-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+@media (max-width: 500px) {
+  .post-comments-container {
+    padding: 0 12px;
+  }
+}
+
+.comment-input {
+  width: 448px;
+  padding: 8px 0 8px 0;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.post-emoji-button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.posts-post-button {
+  background: none;
+  border: none;
+  outline: none;
+  color: #0095f6;
+  cursor: pointer;
+  margin-right: 32px;
+  padding: 0;
+}
+
+.emoji-input-container {
+  position: absolute;
+  right: 0;
+}
+
+@media (max-width: 1024px) {
+  .emoji-input-container {
+    right: 5px;
+  }
+}
+
+.emoji-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.emoji-container {
+  position: absolute;
+  bottom: 30px;
+}
+
+@media (max-width: 1024px) {
+  .emoji-container {
+    position: absolute;
+    bottom: 30px;
+    max-height: 500px;
+    max-width: 400px;
+    right: 10px;
+    overflow-x: hidden;
+    border-radius: 4px;
+  }
+}
+
+@media (max-width: 768px) {
+  .emoji-container {
+    position: absolute;
+    bottom: 30px;
+    width: 300px;
+    height: 280px;
+    right: 10px;
+    overflow-x: hidden;
+    border-radius: 4px;
+  }
+}

@@ -1,0 +1,38 @@
+.comment-list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  list-style-type: none;
+  padding: 12px;
+}
+
+.comments-user-profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: royalblue;
+  color: #ffffff;
+  margin-right: 8px;
+}
+
+.comment-text {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.comment-commented-username {
+  font-weight: 600;
+  margin-right: 4px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.commented-date {
+  font-size: 12px;
+  color: gray;
+}
