@@ -17,7 +17,7 @@ const Suggestions = () => {
   }, []);
 
   const getProfileUser = async () => {
-    const apiUrl = "http://localhost:3002/users/profile-user";
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/profile-user";
     const jwtToken = Cookies.get("jwt_token");
     const options = {
       method: "GET",
@@ -39,7 +39,7 @@ const Suggestions = () => {
 
   const getUsers = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = "http://localhost:3002/users/suggestion-users";
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/suggestion-users";
     const options = {
       method: "GET",
       headers: {
@@ -62,7 +62,7 @@ const Suggestions = () => {
 
   const onClickFollowUser = async (id) => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = "http://localhost:3002/users/follow-user";
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/follow-user";
 
     const newUser = {
       userId: id,
