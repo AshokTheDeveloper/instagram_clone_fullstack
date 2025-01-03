@@ -16,7 +16,7 @@ const ProfilePostItem = (props) => {
 
   const getLikeAndCommentCounts = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = `http://localhost:3002/users/lc-count/${_id}`;
+    const apiUrl = `https://instagram-clone-backend-rfda.onrender.com/users/lc-count/${_id}`;
     const options = {
       method: "GET",
       headers: {
