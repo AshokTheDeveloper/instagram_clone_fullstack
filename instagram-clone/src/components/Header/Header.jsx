@@ -55,7 +55,7 @@ const Header = () => {
   }, []);
 
   const getUser = async () => {
-    const apiUrl = "http://localhost:3002/users/profile-user";
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/profile-user";
     const jwtToken = Cookies.get("jwt_token");
     const options = {
       method: "GET",
@@ -103,7 +103,7 @@ const Header = () => {
       caption: captionText,
     };
 
-    const apiUrl = "http://localhost:3002/users/create-post";
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/create-post";
     const jwtToken = Cookies.get("jwt_token");
     const options = {
       method: "POST",
@@ -212,7 +212,7 @@ const Header = () => {
       return;
     }
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = `http://localhost:3002/users/search?query=${searchInput}`;
+    const apiUrl = `https://instagram-clone-backend-rfda.onrender.com/users/search?query=${searchInput}`;
     const options = {
       method: "GET",
       headers: {
