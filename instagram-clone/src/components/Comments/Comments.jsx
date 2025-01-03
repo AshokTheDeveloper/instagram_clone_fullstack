@@ -21,7 +21,7 @@ const Comments = (props) => {
   }, []);
 
   const getComments = async () => {
-    const apiUrl = `http://localhost:3002/users/comments/${_id}`;
+    const apiUrl = `https://instagram-clone-backend-rfda.onrender.com/users/comments/${_id}`;
     const jwtToken = Cookies.get("jwt_token");
     const options = {
       method: "GET",
