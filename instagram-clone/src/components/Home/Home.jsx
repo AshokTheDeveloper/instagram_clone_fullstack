@@ -21,7 +21,7 @@ function Home() {
 
   const getHomePosts = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = "http://localhost:3002/users/home-posts";
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/home-posts";
     const options = {
       method: "GET",
       headers: {
