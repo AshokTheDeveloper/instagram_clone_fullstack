@@ -51,11 +51,7 @@ const StoryPlay = () => {
 
   const getStories = async () => {
     const jwtToken = Cookies.get("jwt_token");
-<<<<<<< HEAD
     const url = `${apiUrl}/users/stories/${name}`;
-=======
-    const apiUrl = `https://instagram-clone-backend-rfda.onrender.com/users/stories/${name}`;
->>>>>>> 3bef60cf7fb517776262497cf67d221cc7fa0823
     const options = {
       method: "GET",
       headers: {
