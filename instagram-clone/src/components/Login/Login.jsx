@@ -49,7 +49,7 @@ function Login() {
       return;
     }
 
-    const apiUrl = "http://localhost:3002/users/login";
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/login";
     const options = {
       method: "POST",
       headers: {
