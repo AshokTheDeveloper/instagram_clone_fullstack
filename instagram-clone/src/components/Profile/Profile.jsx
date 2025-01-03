@@ -71,7 +71,7 @@ function Profile() {
 
   const getFollowersAndFollowingCount = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = "http://localhost:3002/users/follow-count";
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/follow-count";
     const options = {
       method: "GET",
       headers: {
@@ -96,7 +96,7 @@ function Profile() {
   const getProfilePosts = async () => {
     const jwtToken = Cookies.get("jwt_token");
 
-    const apiUrl = "http://localhost:3002/users/profile-posts";
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/profile-posts";
     const options = {
       method: "GET",
       headers: {
@@ -155,7 +155,7 @@ function Profile() {
 
   const uploadProfileOnDatabase = async () => {
     const jwtToken = Cookies.get("jwt_token");
-    const apiUrl = "http://localhost:3002/users/upload-profile";
+    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/upload-profile";
     const newProfile = {
       profilePic: picture,
     };
