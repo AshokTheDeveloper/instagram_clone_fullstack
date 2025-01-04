@@ -104,10 +104,7 @@ const Story = () => {
       const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
-        console.log("story: ", data);
         onReloadStory();
-      } else {
-        console.log("Error: ", error);
       }
     } catch (error) {
       console.log("Response error on upload story to db: ", error.message);
@@ -172,7 +169,6 @@ const Story = () => {
                   className="story-popup-close-button"
                   onClick={uploadStoryToDatabase}
                 >
-                  {/* <IoMdClose className="story-popup-close-icon" /> */}
                   Post story
                 </button>
                 <img src={story} alt="story_image" className="story-image" />

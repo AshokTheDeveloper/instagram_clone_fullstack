@@ -25,6 +25,7 @@ const likeCommentCount = require("../controllers/post/likeCommentCount.controlle
 const getUserProfile = require("../controllers/post/userProfile.controller");
 const userProfilePosts = require("../controllers/post/userProfilePosts.controller");
 const searchUsers = require("../controllers/user/searchUsers.controller");
+const followStatus = require("../controllers/follow/followStatus.controller");
 
 router.post("/signup", signup);
 router.post("/login", login);
@@ -49,5 +50,6 @@ router.get("/likes/:postId", authenticateUser, likesCount);
 router.get("/liked-status/:postId", authenticateUser, likeStatus);
 router.get("/lc-count/:postId", authenticateUser, likeCommentCount);
 router.get("/:username", authenticateUser, getUserProfile);
+router.get("/follow-status/:userId", authenticateUser, followStatus);
 
 module.exports = router;

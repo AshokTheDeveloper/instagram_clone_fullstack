@@ -18,6 +18,10 @@ const Suggestions = () => {
     getProfileUser();
   }, []);
 
+  const onFollowedReload = () => {
+    window.location.reload();
+  };
+
   const getProfileUser = async () => {
     const url = `${apiUrl}/users/profile-user`;
     const jwtToken = Cookies.get("jwt_token");
@@ -65,7 +69,6 @@ const Suggestions = () => {
   const onClickFollowUser = async (id) => {
     const jwtToken = Cookies.get("jwt_token");
     const url = `${apiUrl}/users/follow-user`;
-    const apiUrl = "https://instagram-clone-backend-rfda.onrender.com/users/follow-user";
 
     const newUser = {
       userId: id,
@@ -82,6 +85,9 @@ const Suggestions = () => {
     try {
       const response = await fetch(url, options);
       const data = await response.json();
+      if (response.ok) {
+        onFollowedReload();
+      }
     } catch (error) {
       console.log("Response error: ", error.message);
     }

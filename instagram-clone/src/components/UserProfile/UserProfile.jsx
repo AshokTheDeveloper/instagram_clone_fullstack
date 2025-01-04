@@ -127,10 +127,10 @@ function UserProfile() {
         <div className="another-profile-user-name-container">
           <button className="profile-username">{username}</button>
           <button type="button" className="profile-user-buttons">
-            Edit profile
+            following
           </button>
           <button type="button" className="profile-user-buttons">
-            View archive
+            follow
           </button>
           <button type="button" className="profile-user-settings-button">
             <PiGearSixLight className="user-profile-icons" />
@@ -148,7 +148,7 @@ function UserProfile() {
           </li>
         </ul>
         <div className="profile-user-bio-container">
-          <p className="profile-bio-username">Dwayne Johnson</p>
+          <p className="profile-bio-username">{username}</p>
           <ul className="profile-bio-item-container">
             <li className="profile-bio-item">builder of stuff</li>
             <li className="profile-bio-item">tequila sipper</li>
