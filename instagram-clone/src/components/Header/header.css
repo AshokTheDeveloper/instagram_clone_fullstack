@@ -643,9 +643,10 @@
 
 @media (max-width: 1024px) {
   .post-popup-close-button {
+    position: fixed;
     display: block;
     right: 10px;
-    top: -470px;
+    top: 20px;
     z-index: 99;
   }
 }
