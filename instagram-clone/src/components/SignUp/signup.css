@@ -65,7 +65,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .instagram-logo {
     width: 150px;
   }
@@ -139,7 +139,7 @@
   }
 
   .signup-hr-line {
-    width: 120px;
+    width: 100%;
   }
 }
 
@@ -185,7 +185,7 @@
   margin-left: 4px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .signup-bottom-caption {
     width: 90%;
   }

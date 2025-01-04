@@ -6,7 +6,6 @@ export const UserContext = createContext();
 const InstagramContextProvider = (props) => {
   const [user, setUser] = useState({});
   const apiUrl = "https://instagram-clone-backend-rfda.onrender.com";
-
   useEffect(() => {
     getUser();
   }, []);

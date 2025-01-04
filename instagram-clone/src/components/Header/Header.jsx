@@ -20,6 +20,7 @@ import { RiSettings2Line, RiMessengerLine } from "react-icons/ri";
 import { LuActivitySquare } from "react-icons/lu";
 import { TbMessageReport } from "react-icons/tb";
 import { IoMdClose } from "react-icons/io";
+import { CiLogout } from "react-icons/ci";
 import SearchUserItem from "../SearchUserItem/SearchUserItem";
 import { UserContext } from "../../context/UserContext";
 import "./header.css";
@@ -323,6 +324,8 @@ const Header = () => {
     }, 10);
   };
 
+
+
   const renderPosting = () => (
     <div className="create-modal-container" onClick={onHandle}>
       <div
@@ -358,11 +361,21 @@ const Header = () => {
           </div>
           {createCaption ? (
             <div className="caption-container">
-              <img
-                src={postedImage}
-                alt="post_image"
-                className="posted-image"
-              />
+              {!openCaption && (
+                <img
+                  src={postedImage}
+                  alt="post_image"
+                  className="posted-image"
+                />
+              )}
+              <div className="show-mobile-caption-container">
+                <img
+                  src={postedImage}
+                  alt="post_image"
+                  className="posted-image"
+                />
+              </div>
+
               {openCaption && (
                 <div className="post-right-section-container">
                   <div className="post-caption-username-container">
@@ -370,6 +383,7 @@ const Header = () => {
                     <p className="post-caption-user-text">AsDev.</p>
                   </div>
                   <textarea
+                    placeholder="Add caption..."
                     type="textarea"
                     rows={10}
                     cols={40}
@@ -520,8 +534,18 @@ const Header = () => {
         />
       </Link>
       <div className="mobile-icons-container">
-        <FaRegHeart className="mobile-nav-icons" />
-        <RiMessengerLine className="mobile-nav-icons" />
+        <button className="mobile-header-logout-button">
+          <FaRegHeart className="mobile-nav-icons" />
+        </button>
+        <button className="mobile-header-logout-button">
+          <RiMessengerLine className="mobile-nav-icons" />
+        </button>
+        <button
+          className="mobile-header-logout-button"
+          onClick={onLogoutHandle}
+        >
+          <CiLogout className="mobile-nav-icons" />
+        </button>
       </div>
     </div>
   );

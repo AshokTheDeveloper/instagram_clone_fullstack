@@ -105,7 +105,7 @@ function Login() {
             onChange={onChangePassword}
           />
           <button type="submit" className="login-button">
-            Login up
+            Login
           </button>
         </form>
         <div className="hr-line-or-text">

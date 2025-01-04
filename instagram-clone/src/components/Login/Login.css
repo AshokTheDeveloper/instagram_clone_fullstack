@@ -100,7 +100,7 @@
   }
 
   .hr-line {
-    width: 140px;
+    width: 100%;
     background: #262626;
   }
 }

@@ -51,6 +51,7 @@ const Comments = (props) => {
   };
 
   const commentsCount = comments.length;
+
   const renderCommentsCountButton = () =>
     commentsCount > 0 && (
       <button
@@ -91,6 +92,36 @@ const Comments = (props) => {
       )}
     </div>
   );
+
+  const onCommentApiHandle = async () => {
+    const newComment = {
+      postId: _id,
+      content: commentInput,
+    };
+
+    const jwtToken = Cookies.get("jwt_token");
+    const url = `${apiUrl}/users/post-comment`;
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwtToken}`,
+      },
+      body: JSON.stringify(newComment),
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      if (response.ok) {
+        console.log(data);
+      }
+    } catch (error) {
+      console.log("Response error: ", error.message);
+    }
+
+    setCommentInput("");
+  };
 
   const renderCommentsPopup = () => (
     <>
@@ -141,7 +172,12 @@ const Comments = (props) => {
                 onChange={onHandleComment}
               />
               {commentInput.trim().length > 0 && (
-                <button className="posts-post-button">Post</button>
+                <button
+                  onClick={onCommentApiHandle}
+                  className="posts-post-button"
+                >
+                  Post
+                </button>
               )}
             </div>
           </div>
