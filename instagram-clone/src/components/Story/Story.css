@@ -156,18 +156,18 @@
   }
 
   .story-container .story {
+    width: 64px;
+    height: 64px;
+  }
+
+  .story-white-bg {
     width: 58px;
     height: 58px;
   }
 
-  .story-white-bg {
-    width: 53px;
-    height: 53px;
-  }
-
   .story-container .story img {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
   }
 
   .your-story-icon {
