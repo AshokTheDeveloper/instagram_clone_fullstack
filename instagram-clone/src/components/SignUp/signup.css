@@ -19,13 +19,13 @@
   margin-bottom: 12px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .inst-signup-bg-container {
-    padding: 30px 30px;
+    padding: 30px 5px;
   }
 
   .inst-form-wrapper {
-    width: 300px;
+    width: 100%;
     padding: 0 12px;
   }
 }
@@ -73,6 +73,10 @@
   .signup-caption {
     font-size: 14px;
   }
+
+  .login-with-fb-button {
+    width: 92%;
+  }
 }
 
 .signup-fb-icon {
@@ -80,21 +84,21 @@
   margin-right: 6px;
 }
 
-.hr-line-or-text {
+.signup-hr-line-or-text {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
 }
 
-.hr-line {
+.signup-hr-line {
   width: 103px;
   height: 1px;
   background: #262626;
 }
 
-.or-text {
+.signup-or-text {
   margin: 0 18px;
   font-size: 13px;
   color: #a8a8a8;
@@ -119,6 +123,24 @@
   margin-bottom: 6px;
   border: 1px solid rgb(54, 54, 54);
   border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .signup-form {
+    width: 96%;
+  }
+
+  .signup-form input {
+    width: 96%;
+  }
+
+  .signup-hr-line-or-text {
+    width: 90%;
+  }
+
+  .signup-hr-line {
+    width: 120px;
+  }
 }
 
 .signup-bottom-caption {
@@ -165,7 +187,17 @@
 
 @media (max-width: 500px) {
   .signup-bottom-caption {
-   
+    width: 90%;
+  }
+  .signup-privacy-policy-text {
+    width: 90%;
+  }
+
+  .signup-bottom-caption {
+  }
+
+  .signup-button {
+    width: 96%;
   }
 }
 
@@ -204,9 +236,9 @@
   font-size: 12px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .signup-navigation-container {
-    width: 300px;
+    width: 100%;
   }
 
   .get-app-text {

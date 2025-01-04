@@ -116,10 +116,10 @@ function SignUp() {
             <FaFacebookSquare className="signup-fb-icon" />
             Log in with Facebook
           </button>
-          <div className="hr-line-or-text">
-            <div className="hr-line"></div>
-            <p className="or-text">OR</p>
-            <div className="hr-line"></div>
+          <div className="signup-hr-line-or-text">
+            <div className="signup-hr-line"></div>
+            <p className="signup-or-text">OR</p>
+            <div className="signup-hr-line"></div>
           </div>
           <form onSubmit={onSubmitForm} className="signup-form">
             <input
