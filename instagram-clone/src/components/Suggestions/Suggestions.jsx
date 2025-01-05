@@ -18,9 +18,6 @@ const Suggestions = () => {
     getProfileUser();
   }, []);
 
-  const onFollowedReload = () => {
-    window.location.reload();
-  };
 
   const getProfileUser = async () => {
     const url = `${apiUrl}/users/profile-user`;
@@ -86,7 +83,6 @@ const Suggestions = () => {
       const response = await fetch(url, options);
       const data = await response.json();
       if (response.ok) {
-        onFollowedReload();
       }
     } catch (error) {
       console.log("Response error: ", error.message);

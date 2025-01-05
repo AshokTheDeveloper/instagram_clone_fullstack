@@ -49,13 +49,24 @@ function UserProfile() {
   const [userData, setUserData] = useState({});
   const [postsData, setPostsData] = useState([]);
   const [activeTab, setActiveTab] = useState("posts");
+  const [isFollowing, setIsFollowing] = useState(false);
 
-  const { username, profilePic, followersCount, followingCount, postsCount } =
-    userData;
+  const {
+    _id,
+    username,
+    profilePic,
+    followersCount,
+    followingCount,
+    postsCount,
+  } = userData;
   useEffect(() => {
     getUserProfile();
     getProfilePosts();
   }, []);
+
+  useEffect(() => {
+    getFollowStatus();
+  }, [_id]);
 
   const getUserProfile = async () => {
     const jwtToken = Cookies.get("jwt_token");
@@ -105,6 +116,62 @@ function UserProfile() {
     }
   };
 
+  const getFollowStatus = async () => {
+    if (!_id) {
+      return;
+    }
+
+    const url = `${apiUrl}/users/follow-status/${_id}`;
+    const jwtToken = Cookies.get("jwt_token");
+    const options = {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      if (response.ok) {
+        setIsFollowing(data.isFollowed);
+      }
+    } catch (error) {
+      console.error("Error getting follow status: ", error);
+    }
+  };
+
+  const onToggleFollowUser = async () => {
+    setIsFollowing((prevState) => !prevState);
+    onClickFollowUser();
+  };
+
+  const onClickFollowUser = async () => {
+    const jwtToken = Cookies.get("jwt_token");
+    const url = `${apiUrl}/users/follow-user`;
+
+    const newUser = {
+      userId: _id,
+    };
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwtToken}`,
+      },
+      body: JSON.stringify(newUser),
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      if (response.ok) {
+      }
+    } catch (error) {
+      console.log("Response error: ", error.message);
+    }
+  };
+
   const renderTopProfileSection = () => (
     <div className="another-user-profile">
       {profilePic ? (
@@ -126,12 +193,17 @@ function UserProfile() {
       <div className="another-user-profile-details">
         <div className="another-profile-user-name-container">
           <button className="profile-username">{username}</button>
-          <button type="button" className="profile-user-buttons">
-            following
+
+          <button
+            onClick={onToggleFollowUser}
+            type="button"
+            className={`profile-user-buttons ${
+              isFollowing ? "" : "follow-status-button"
+            }`}
+          >
+            {isFollowing ? "following" : "follow"}
           </button>
-          <button type="button" className="profile-user-buttons">
-            follow
-          </button>
+
           <button type="button" className="profile-user-settings-button">
             <PiGearSixLight className="user-profile-icons" />
           </button>
@@ -246,18 +318,16 @@ function UserProfile() {
             <FaUser className="profile-mobile-view-null-user" />
           </label>
         )}
-
-        <div className="profile-mobile-view-counters">
-          <p className="profile-mobile-view-counts">{postsCount}</p>
-          <p>Posts</p>
-        </div>
-        <div className="profile-mobile-view-counters">
-          <p className="profile-mobile-view-counts">{followersCount}</p>
-          <p>followers</p>
-        </div>
-        <div className="profile-mobile-view-counters">
-          <p className="profile-mobile-view-counts">{followingCount}</p>
-          <p>following</p>
+        <div className="profile-mobile-view-follow-status-user-container">
+          <button
+            onClick={onToggleFollowUser}
+            type="button"
+            className={`profile-user-buttons ${
+              isFollowing ? "" : "follow-status-button"
+            }`}
+          >
+            {isFollowing ? "following" : "follow"}
+          </button>
         </div>
       </div>
       <div className="profile-mobile-view-bio-container">
@@ -270,6 +340,20 @@ function UserProfile() {
         <button>Edit Profile</button>
         <button>Share Profile</button>
         <button>Contact</button>
+      </div>
+      <div className="profile-mobile-view-counters-container">
+        <div className="profile-mobile-view-counters">
+          <p className="profile-mobile-view-counts">{postsCount}</p>
+          <p>Posts</p>
+        </div>
+        <div className="profile-mobile-view-counters">
+          <p className="profile-mobile-view-counts">{followersCount}</p>
+          <p>followers</p>
+        </div>
+        <div className="profile-mobile-view-counters">
+          <p className="profile-mobile-view-counts">{followingCount}</p>
+          <p>following</p>
+        </div>
       </div>
       <div className="profile-mobile-view-posts-tabs-container">
         {tabs.map((eachTab) => (

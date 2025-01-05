@@ -141,6 +141,12 @@
   cursor: pointer;
 }
 
+.profile-user-buttons.follow-status-button {
+  background: #0095f6;
+  color: #ffffff;
+  font-weight: 500;
+}
+
 .profile-user-settings-button {
   background: none;
   border: none;
@@ -308,6 +314,14 @@
     padding: 12px 6%;
   }
 
+  .profile-mobile-view-follow-status-user-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 40px;
+  }
+
   .profile-mobile-view-null-user-container {
     display: flex;
     justify-content: center;
@@ -452,5 +466,29 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .profile-mobile-view-counters-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 8px 8px 16px 8px;
+    padding: 16px 8px;
+    border-top: 1px solid rgb(231, 231, 231);
+    border-bottom: 1px solid rgb(231, 231, 231);
+  }
+
+  .profile-mobile-view-counters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-mobile-view-counters p {
+    font-size: 14px;
+  }
+
+  .profile-mobile-view-counts {
+    font-weight: 600;
   }
 }

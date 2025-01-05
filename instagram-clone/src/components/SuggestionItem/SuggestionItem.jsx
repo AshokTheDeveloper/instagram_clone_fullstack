@@ -15,8 +15,6 @@ const SuggestionItem = (props) => {
     getFollowStatus();
   }, [_id]);
 
-
-
   const getFollowStatus = async () => {
     const url = `${apiUrl}/users/follow-status/${_id}`;
     const jwtToken = Cookies.get("jwt_token");
@@ -40,6 +38,7 @@ const SuggestionItem = (props) => {
 
   const onClickFollow = () => {
     followUser(_id);
+    setIsFollowing((prevState) => !prevState);
   };
 
   return (
@@ -65,7 +64,7 @@ const SuggestionItem = (props) => {
           className="suggestion-item-follow-button"
           onClick={onClickFollow}
         >
-          {isFollowing ? "Unfollow" : "Follow"}
+          {isFollowing ? "following" : "Follow"}
         </button>
       </div>
     </li>
