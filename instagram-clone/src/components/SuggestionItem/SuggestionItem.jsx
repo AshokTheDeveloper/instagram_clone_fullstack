@@ -3,7 +3,7 @@ import { IoPersonCircle } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import { UserContext } from "../../context/UserContext";
-import "./SuggestionItem.css";
+import "./suggestionitem.css";
 
 const SuggestionItem = (props) => {
   const { userDetails, followUser } = props;
