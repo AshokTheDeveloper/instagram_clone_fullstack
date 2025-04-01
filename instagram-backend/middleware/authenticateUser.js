@@ -12,8 +12,8 @@ const authenticateUser = (req, res, next) => {
       return res.status(401).json({ message: "Invalid access token" });
     }
 
-    const SECRETE_KEY = process.env.SECRETE_KEY;
-    jwt.verify(jwtToken, SECRETE_KEY, (error, payload) => {
+    const SECRET_KEY = process.env.SECRET_KEY;
+    jwt.verify(jwtToken, SECRET_KEY, (error, payload) => {
       if (error) {
         return res.status(401).json({ message: "User not authenticated" });
       }

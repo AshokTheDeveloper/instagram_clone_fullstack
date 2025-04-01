@@ -1,36 +1,45 @@
 const Story = require("../../models/story.model");
-const mongoose = require("mongoose");
+const Follow = require("../../models/follow.model");
 
 const getHomeStories = async (req, res) => {
   try {
     const { id } = req.user;
-    const idOfUser = new mongoose.Types.ObjectId(id);
 
-    // Fetch distinct users with stories
+    const following = await Follow.find({ followerId: id }).select(
+      "followingId"
+    );
+    const followingIds = following.map((f) => f.followingId);
+
+    const twentyFourHoursAgo = new Date();
+    twentyFourHoursAgo.setHours(twentyFourHoursAgo.getHours() - 24);
+
     const stories = await Story.aggregate([
       {
         $match: {
-          userId: { $ne: idOfUser },
+          userId: { $in: followingIds },
+          createdAt: { $gte: twentyFourHoursAgo },
         },
       },
+
       {
         $lookup: {
           from: "users",
           localField: "userId",
           foreignField: "_id",
-          as: "userDetails",
+          as: "user_details",
         },
       },
-      {
-        $unwind: "$userDetails",
-      },
+
+      { $unwind: "$user_details" },
+
       {
         $group: {
           _id: "$userId",
-          profilePic: { $first: "$userDetails.profilePic" },
-          username: { $first: "$userDetails.username" },
+          profilePic: { $first: "$user_details.profilePic" },
+          username: { $first: "$user_details.username" },
         },
       },
+
       {
         $project: {
           userId: "$_id",
@@ -40,15 +49,14 @@ const getHomeStories = async (req, res) => {
         },
       },
     ]);
+    const storiesCount = stories.length;
 
-    if (!stories || stories.length === 0) {
-      return res.status(404).json({ message: "Stories not found" });
-    }
-
-    return res.status(200).json({ stories: stories });
+    return res.status(200).json({ stories, storiesCount, success: true });
   } catch (error) {
     console.error("Internal server error:", error.message);
-    return res.status(500).json({ message: "Internal server error" });
+    return res
+      .status(500)
+      .json({ message: "Internal server error", success: false });
   }
 };
 

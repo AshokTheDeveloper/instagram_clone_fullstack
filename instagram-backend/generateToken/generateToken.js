@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const SECRETE_KEY = process.env.SECRETE_KEY;
+const SECRET_KEY = process.env.SECRET_KEY;
 
 const generateToken = (user, res) => {
   try {
@@ -7,7 +7,7 @@ const generateToken = (user, res) => {
       id: user,
     };
 
-    const jwtToken = jwt.sign(payload, SECRETE_KEY, { expiresIn: "7d" });
+    const jwtToken = jwt.sign(payload, SECRET_KEY, { expiresIn: "7d" });
     return res.status(200).json({ jwt_token: jwtToken });
   } catch (error) {
     console.log("Internal server error: ", error.message);

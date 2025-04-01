@@ -39,13 +39,13 @@ const getComments = async (req, res) => {
       },
     ]);
 
-    if (!comments) {
-      return res.status(404).json({ message: "No comments found" });
-    }
-    return res.status(200).json({ comments: comments });
+    const commentsCount = comments.length;
+    return res.status(200).json({ comments, commentsCount, success: true });
   } catch (error) {
     console.error("Internal server error:", error.message);
-    return res.status(500).json({ message: "Internal server error" });
+    return res
+      .status(500)
+      .json({ message: "Internal server error", success: false });
   }
 };
 

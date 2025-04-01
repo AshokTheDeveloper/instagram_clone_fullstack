@@ -5,7 +5,6 @@ import { GoHomeFill, GoHome } from "react-icons/go";
 import {
   IoPersonCircleOutline,
   IoSearchOutline,
-  IoPaperPlaneOutline,
 } from "react-icons/io5";
 import { FaRegCompass, FaRegHeart, FaThreads } from "react-icons/fa6";
 import { BiMoviePlay } from "react-icons/bi";

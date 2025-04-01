@@ -38,14 +38,14 @@ const getHomePosts = async (req, res) => {
       },
     ]);
 
-    if (!posts || posts.length === 0) {
-      return res.status(404).json({ message: "No posts found" });
-    }
-
-    return res.status(200).json({ posts });
+    const postsCount = posts.length;
+    return res.status(200).json({ posts, postsCount, success: true });
+    
   } catch (error) {
     console.log("Internal server error: ", error.message);
-    return res.status(500).json({ message: "Internal server error" });
+    return res
+      .status(500)
+      .json({ message: "Internal server error", success: false });
   }
 };
 

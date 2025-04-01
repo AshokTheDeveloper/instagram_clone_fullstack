@@ -1,0 +1,16 @@
+#instagram-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 100%;
+  height: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(45deg, #833ab4, #e1306c, #fd1d1d, #fcaf45);
+  transition: width 0.3s ease-in-out;
+}

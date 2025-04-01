@@ -1,19 +1,20 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import "./Story.css";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoPersonCircle } from "react-icons/io5";
-import { IoIosAddCircle, IoMdClose } from "react-icons/io";
+import { IoIosAddCircle } from "react-icons/io";
 import Cookies from "js-cookie";
-import "./Story.css";
 import { UserContext } from "../../context/UserContext";
 
 const Story = () => {
   const storyRef = useRef();
-  const { user, apiUrl } = useContext(UserContext);
+  const { apiUrl } = useContext(UserContext);
 
   const [showStory, setShowStory] = useState(false);
   const [storyInput, setStoryInput] = useState("");
   const [story, setStory] = useState("");
   const [storiesData, setStoriesData] = useState([]);
+  const [user, setUser] = useState(null);
 
   const handleWheel = (event) => {
     event.preventDefault();
@@ -32,7 +33,29 @@ const Story = () => {
 
   useEffect(() => {
     getStories();
+    getUser();
   }, []);
+
+  const getUser = async () => {
+    const url = `${apiUrl}/users/profile-user`;
+    const jwtToken = Cookies.get("jwt_token");
+    const options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    };
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      if (response.ok) {
+        setUser(data.profileUser);
+      }
+    } catch (error) {
+      console.log("Response error: ", error.message);
+    }
+  };
 
   const onReloadStory = () => {
     window.location.reload();
@@ -74,7 +97,7 @@ const Story = () => {
         console.log("Error: ", data);
       }
     } catch (error) {
-      console.log("Response error on post uploading to cloud");
+      console.log("Response error on post uploading to cloud", error);
     }
   };
 
@@ -102,7 +125,6 @@ const Story = () => {
 
     try {
       const response = await fetch(url, options);
-      const data = await response.json();
       if (response.ok) {
         onReloadStory();
       }
@@ -139,7 +161,7 @@ const Story = () => {
     <div className="story-container" ref={storyRef}>
       <div className="story-wrapper">
         <div className="your-story-container">
-          {user.profilePic ? (
+          {user?.profilePic ? (
             <Link to={`/stories/${user.username}`} className="story-link">
               <div className="story-wrapper">
                 <img

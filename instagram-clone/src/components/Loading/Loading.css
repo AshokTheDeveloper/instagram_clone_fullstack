@@ -1,0 +1,14 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #000000;
+}
+
+.instagram-logo-loading {
+  min-width: 100px;
+  max-width: 12px;
+}

@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useInRouterContext } from "react-router-dom";
 import Cookies from "js-cookie";
 import CommentItem from "../CommentItem/CommentItem";
 import { IoClose } from "react-icons/io5";
@@ -10,7 +9,7 @@ import { UserContext } from "../../context/UserContext";
 import "./Comments.css";
 
 const Comments = (props) => {
-  const { apiUrl, user } = useContext(UserContext);
+  const { apiUrl } = useContext(UserContext);
 
   const { postDetails } = props;
   const { _id, imageUrl } = postDetails;
@@ -18,9 +17,11 @@ const Comments = (props) => {
   const [openComments, setOpenComments] = useState(false);
   const [commentInput, setCommentInput] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     getComments();
+    getUser();
   }, []);
 
   const getComments = async () => {
@@ -40,6 +41,27 @@ const Comments = (props) => {
         if (data.comments.length !== 0) {
           setComments(data.comments);
         }
+      }
+    } catch (error) {
+      console.log("Response error: ", error.message);
+    }
+  };
+
+  const getUser = async () => {
+    const url = `${apiUrl}/users/profile-user`;
+    const jwtToken = Cookies.get("jwt_token");
+    const options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    };
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      if (response.ok) {
+        setUser(data.profileUser);
       }
     } catch (error) {
       console.log("Response error: ", error.message);
