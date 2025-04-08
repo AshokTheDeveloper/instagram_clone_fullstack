@@ -6,7 +6,6 @@ const generateToken = (user, res) => {
     const payload = {
       id: user,
     };
-
     const jwtToken = jwt.sign(payload, SECRET_KEY, { expiresIn: "7d" });
     return res.status(200).json({ jwt_token: jwtToken });
   } catch (error) {
